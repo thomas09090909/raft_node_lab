@@ -1,5 +1,5 @@
 Raft Lite — Run Instructions
-1. Start Nodes
+# 1. Start Nodes
 
 Launch a Raft Lite node on each EC2 instance.
 
@@ -19,7 +19,7 @@ Repeat this process for the remaining nodes, changing:
 
 --peers to list all other nodes in the cluster
 
-2. Verify Leader
+# 2. Verify Leader
 
 Check the status of a node to see if it is the leader or a follower:
 
@@ -28,7 +28,7 @@ curl http://NODE_IP:PORT/status
 
 The response will indicate the node’s role, current term, and log information.
 
-3. Submit Client Commands
+# 3. Submit Client Commands
 
 Commands must be sent only to the leader node.
 
@@ -39,7 +39,7 @@ python3 client.py --node http://LEADER_IP:LEADER_PORT --cmd "SET x = 5"
 
 The leader appends the entry to its log and replicates it to followers.
 
-4. Test Failure Handling
+# 4. Test Failure Handling
 
 Leader crash: Stop the leader node using Ctrl+C.
 
